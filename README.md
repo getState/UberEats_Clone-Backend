@@ -14,3 +14,5 @@ configuration 모듈 : npm i --save @nestjs/config
 가상변수를 설정할 수 있게 도와주는 모듈 : npm i cross-env
 
 joi 자바스크립트용 스키마 설명언어, 데이터 유효성 검사 : npm i joi
+
+Data Mapper vs Active Record : ORM을 사용하는 두가지 방식, Data Mapper가 대규모 프로젝트에 더 어울리고 Active Record는 소규모 앱에서 단순하게 사용할 수 있음

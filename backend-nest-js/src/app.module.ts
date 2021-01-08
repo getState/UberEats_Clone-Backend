@@ -4,6 +4,8 @@ import * as Joi from 'joi';    //joi가 타입스크립트가 아닌 js로 되�
 import { join } from 'path';
 import {ConfigModule} from '@nestjs/config'
 import {TypeOrmModule} from '@nestjs/typeorm';
+import { RestaurantsModule } from './restaurants/restaurants.module';
+import { Restaurant } from './restaurants/entities/restaurant.entity';
 
 @Module({
   imports: [
@@ -25,15 +27,17 @@ import {TypeOrmModule} from '@nestjs/typeorm';
     //   autoSchemaFile: true
     // }),
     TypeOrmModule.forRoot({
-      "type": "postgres",
-      "host":process.env.DB_HOST,
-      "port":+process.env.PORT,
-      "username":process.env.DB_USERNAME,
-      "password":process.env.DB_PASSWORD,
-      "database":process.env.DB_NAME,
-      "synchronize": true,
-      "logging": true,
-    })
+      type: "postgres",
+      host:process.env.DB_HOST,
+      port:+process.env.PORT,
+      username:process.env.DB_USERNAME,
+      password:process.env.DB_PASSWORD,
+      database:process.env.DB_NAME,
+      synchronize: true,
+      logging: true,
+      entities:[Restaurant],
+    }),
+    RestaurantsModule
   ],
   controllers: [],
   providers: [],
